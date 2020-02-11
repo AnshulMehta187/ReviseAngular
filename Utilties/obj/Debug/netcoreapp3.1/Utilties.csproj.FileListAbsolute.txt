@@ -1,0 +1,8 @@
+D:\Learn\AngularFundamentalsRevision\Utilties\bin\Debug\netcoreapp3.1\Utilties.deps.json
+D:\Learn\AngularFundamentalsRevision\Utilties\bin\Debug\netcoreapp3.1\Utilties.dll
+D:\Learn\AngularFundamentalsRevision\Utilties\bin\Debug\netcoreapp3.1\Utilties.pdb
+D:\Learn\AngularFundamentalsRevision\Utilties\obj\Debug\netcoreapp3.1\Utilties.AssemblyInfoInputs.cache
+D:\Learn\AngularFundamentalsRevision\Utilties\obj\Debug\netcoreapp3.1\Utilties.AssemblyInfo.cs
+D:\Learn\AngularFundamentalsRevision\Utilties\obj\Debug\netcoreapp3.1\Utilties.dll
+D:\Learn\AngularFundamentalsRevision\Utilties\obj\Debug\netcoreapp3.1\Utilties.pdb
+D:\Learn\AngularFundamentalsRevision\Utilties\obj\Debug\netcoreapp3.1\Utilties.csprojAssemblyReference.cache

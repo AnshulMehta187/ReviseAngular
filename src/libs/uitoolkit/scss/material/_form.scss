@@ -1,0 +1,32 @@
+mat-form-field {
+    // default any form fields to the full width of their parent. this will keep it inside any bootstrap columns
+    width: 100%; 
+    color:#000;
+    font-size: 10px;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding:8px 0 10px 0;
+    
+  }
+
+  
+  .mat-form-field-hide-placeholder .mat-form-field-label-wrapper {
+    top: -17px;  
+  }
+  
+  .mat-form-field-appearance-outline.mat-active .mat-form-field-outline-thick {
+    color: red($color: #000000);
+  }
+  
+  .mat-option.mat-active 
+  {
+    background: red($color: #000000);
+  }
+  
+  
+  .mat-form-field-appearance-outline {
+    .mat-form-field-outline-thick {
+      color:red($color: #000000);
+    } 
+  }

@@ -1,0 +1,85 @@
+
+<app-dialog-header [title]="'New Student'" (closeClick)="cancel()"></app-dialog-header>
+<div  mat-dialog-content>
+    <form [formGroup]="student" class="dialog-form">
+        <div class="row" style="margin-left: 100px;">
+        <section>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header [collapsedHeight]="'30px'" [expandedHeight]="'30px'">
+                    <mat-panel-title>Student Information</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-12">
+                            <div class="row">
+                                    <div class="col-sm-4">
+                                    <mat-form-field>
+                                        <mat-label>First Name</mat-label>
+                                        <input matInput formControlName="firstName" />
+                                    </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    <mat-form-field>
+                                        <mat-label>Last Name</mat-label>
+                                        <input
+                                        matInput
+                                        formControlName="lastName"
+                                        [readonly]="editMode"
+                                        [ngStyle]= "{'color:gray':edit}" 
+                                        />
+                                    </mat-form-field>
+                                    </div>   
+                            </div>    
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                    <mat-form-field>
+                                        <mat-label>Date of Birth</mat-label>
+                                        <input matInput formControlName="dateofBirth" type="datetime-local" placeholder="start date"/>
+                                    </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4" >
+                                    <mat-radio-group formControlName="gender">
+                                        <mat-radio-button value="male">Male</mat-radio-button>
+                                        <mat-radio-button value="female" >Female</mat-radio-button>
+                                    </mat-radio-group>
+                                    </div> 
+                                </div>
+                        </div>
+                    </div>
+            </mat-expansion-panel>
+        </section>
+        </div>
+        <br/> 
+        <div formGroupName="studentAdditionalInformation">
+        <div class="row" style="margin-left: 100px;">
+            <section>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header [collapsedHeight]="'30px'" [expandedHeight]="'30px'">
+                <mat-panel-title>Other Information</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                <div class="col-sm-4">
+                    <mat-form-field>
+                    <mat-label>Grade</mat-label>
+                    <input matInput formControlName="grade" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <mat-checkbox formControlName="isBatchHolder" mat-tooltip="Is Batch Holder">Is Batch Holder</mat-checkbox>
+                </div>
+            </div>
+            </mat-expansion-panel>
+            </section>
+        </div>   
+        </div> 
+    </form>
+
+    <div mat-dialog-actions style="margin-top: 5px">
+        <button mat-flat-button color="primary" (click)="saveClick()" [disabled]="!student.valid">
+        Save
+      </button>
+    </div>
+  </div>
+
+

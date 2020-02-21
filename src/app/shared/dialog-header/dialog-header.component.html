@@ -1,0 +1,13 @@
+<div mat-dialog-title class="header" cdkDragRootElement=".cdk-overlay-pane" cdkDrag cdkDragHandle>
+    <div class="title-dialog-header">
+      <span >{{ title }}</span>
+    </div>
+    <button
+    mat-icon-button
+    type="submit"
+    (click)="closeEvent()"
+    matTooltip="Close"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  </div>

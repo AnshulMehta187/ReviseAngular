@@ -12,20 +12,24 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class StudentDetailsComponent implements OnInit {
 displayedColumns: string[] = ['firstName','lastName','gender','dateofBirth'];
+isLoading : boolean
 
  rowData: Observable<any>[];
   constructor(public dialog: MatDialog,private serviceListService: ServiceListService) { }
 
   ngOnInit()
   {
+    this.isLoading = true;
     return this.getStudentDetails();
   }
 
   
   private getStudentDetails() {
+
     return this.serviceListService.getStudentDetails().subscribe(data => {
+      this.isLoading = false;
       this.rowData = data;
-    });
+    },error => this.isLoading =false);
   }
 
 

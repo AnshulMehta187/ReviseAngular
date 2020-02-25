@@ -19,6 +19,9 @@ import { DialogHeaderComponent } from './shared/dialog-header/dialog-header.comp
 import { StudentDialogComponent } from './pages/components/student-dialog/student-dialog.component';
 import { AppHttpInterceptor } from './shared/Interceptors/response.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { LoaderComponent } from './pages/components/loader/loader.component';
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptor } from './shared/Interceptors/loading.interceptor';
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     SectionHeaderComponent,
     StudentDetailsComponent,
     DialogHeaderComponent,
-    StudentDialogComponent
+    StudentDialogComponent,
+    LoaderComponent
 
   ],
   entryComponents: [StudentDialogComponent],
@@ -46,7 +50,10 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot()
   ],
   providers: [StudentDetailsService,ServiceListService,
-  { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true }] ,
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true }   
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

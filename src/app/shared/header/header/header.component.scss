@@ -1,0 +1,57 @@
+@import '../../../../libs/uitoolkit/scss/variable.scss';
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #201f2b;
+  box-shadow: 2px 8px 6px -6px rgb(190, 189, 189);
+ 
+  color:#c7c5d8;
+  height: $headerHeight;
+  overflow: hidden;
+  z-index: 200;
+
+  a {
+    margin: 0 .36rem;
+
+
+    .logo {
+      height:50px;
+      padding: 1px 3px;
+      margin-top: 2px;
+    }
+  }
+
+  .env {
+    color: $jlgPurple;
+    font-size: small;
+    justify-content: center;
+  }
+
+  .account {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding-right: 30px;
+
+    .username {
+      padding: 0 10px;
+    }
+  }
+
+  .mat-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:hover {
+      
+      color: $jlgBlue;
+      transition: opacity all 0.05s ease;
+      cursor: pointer;
+    }
+  }
+
+  .profile-picture {
+    height: 36px;
+  }
+}

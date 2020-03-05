@@ -22,6 +22,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './pages/components/loader/loader.component';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './shared/Interceptors/loading.interceptor';
+import { LoginComponent } from './pages/components/login/login.component';
+import { NavBarComponent } from './pages/components/nav-bar/nav-bar/nav-bar.component';
+import { HeaderComponent } from './shared/header/header/header.component';
+import { LayoutComponent } from './pages/components/layout/layout.component';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { SidenavItemComponent } from './shared/sidenav/sidenav-item/sidenav-item.component';
 
 
 @NgModule({
@@ -33,7 +39,13 @@ import { LoaderInterceptor } from './shared/Interceptors/loading.interceptor';
     StudentDetailsComponent,
     DialogHeaderComponent,
     StudentDialogComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent,
+    NavBarComponent,
+    HeaderComponent,
+    LayoutComponent,
+    SidenavComponent,
+    SidenavItemComponent
 
   ],
   entryComponents: [StudentDialogComponent],

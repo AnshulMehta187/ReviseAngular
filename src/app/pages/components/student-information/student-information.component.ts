@@ -30,10 +30,10 @@ export class StudentInformationComponent implements OnInit {
 
   saveClick()
   {
-    this.studentDetailsService.saveStudent(this.student.value).subscribe(data =>{
-      this.student.patchValue(data);
-      this.student.markAsPristine();
-    })
+    // this.studentDetailsService.saveStudent(this.student.value).subscribe(data =>{
+    //   this.student.patchValue(data);
+    //   this.student.markAsPristine();
+   // })
   }
 
 }

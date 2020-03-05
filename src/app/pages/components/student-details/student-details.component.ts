@@ -4,6 +4,7 @@ import { pipe, Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { StudentDialogComponent } from '../student-dialog/student-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { StudentDetails } from 'src/app/models/student.model';
 
 @Component({
   selector: 'app-student-details',
@@ -11,10 +12,10 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./student-details.component.scss']
 })
 export class StudentDetailsComponent implements OnInit {
-displayedColumns: string[] = ['firstName','lastName','gender','dateofBirth'];
+displayedColumns: string[] = ['link','firstName','lastName','gender','dateofBirth','delete'];
 isLoading : boolean
 
- rowData: Observable<any>[];
+ rowData: Observable<StudentDetails[]>;
   constructor(public dialog: MatDialog,private serviceListService: ServiceListService) { }
 
   ngOnInit()
@@ -34,8 +35,9 @@ isLoading : boolean
 
 
 
-  openStudentDialog(): void {
+  openStudentDialog(student : any): void {
     const dialogRef = this.dialog.open(StudentDialogComponent, {
+      data : student,
       autoFocus: false,
       disableClose: true,
       height: 'auto',
@@ -48,5 +50,11 @@ isLoading : boolean
         this.getStudentDetails();
       }
     })
+    }
+
+    deleteStudent(studentInfo: StudentDetails) {
+      return this.serviceListService.deleteStudent(studentInfo.id).subscribe(resp =>{
+          this.getStudentDetails();
+        })
+    }
   }
-}

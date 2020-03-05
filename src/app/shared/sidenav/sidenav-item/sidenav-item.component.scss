@@ -1,0 +1,39 @@
+@import '../../../../libs/uitoolkit/scss/variable';
+
+.sidenav-item {
+  a {
+    text-decoration: none;
+    color: #fff;//$jlgMenuHeaderTextColour;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    padding: 10px 15px;
+
+    &:hover {
+      background-color:$jlgMenuHeaderHoverBackground;
+      cursor: pointer;
+      color : #fff;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      .mat-icon {
+        font-size: 24px;
+        margin-right: 5px;
+      }
+    }
+
+    &.active {
+      background-color: $jlgBlue;
+      color: #fff;
+      transition: 0.3s;
+    }
+  }
+}

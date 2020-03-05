@@ -1,5 +1,5 @@
 
-<app-dialog-header [title]="'New Student'" (closeClick)="cancel()"></app-dialog-header>
+<app-dialog-header [title]="isEdit? 'Edit Student' : 'New Student'" (closeClick)="cancel()"></app-dialog-header>
 <div  mat-dialog-content>
     <form [formGroup]="student" class="dialog-form">
         <div class="row" style="margin-left: 100px;">

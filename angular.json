@@ -32,7 +32,13 @@
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/libs"]
+            },
+            "extractCss": true,
+            "preserveSymlinks": true
+
           },
           "configurations": {
             "production": {

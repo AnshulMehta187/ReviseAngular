@@ -1,0 +1,45 @@
+<!-- TODO make a responsive version -->
+<div class="eb-sidenav" [class.collapsed]="isCollapsed">
+    <div class="items custom-scrollbar">
+      <ng-container *ngFor="let l1 of items">
+        <eb-sidenav-item
+          [item]="l1"
+          class="l1"
+          [title]="l1.name"
+          (itemClick)="toggleItem(l1, sidenavLevel.Level1)"
+          [showArrow]="true"
+        ></eb-sidenav-item>
+  
+        <div
+          *ngIf="l1.children.length"
+          class="l2"
+          [@slideInOut]="l1.isOpen ? 'open' : 'closed'"
+        >
+          <ng-container *ngFor="let l2 of l1.children">
+            <eb-sidenav-item
+              [item]="l2"
+              (itemClick)="toggleItem(l2, sidenavLevel.Level2)"
+            ></eb-sidenav-item>
+            <div
+              *ngIf="l2.children.length"
+              class="l3"
+              [@slideInOut]="l2.isOpen ? 'open' : 'closed'"
+            >
+              <ng-container *ngFor="let l3 of l2.children">
+                <eb-sidenav-item [item]="l3"></eb-sidenav-item>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="sidenav-setting">
+      <mat-icon *ngIf="!isCollapsed" (click)="toggle()" title="Collapse">
+        keyboard_arrow_left
+      </mat-icon>
+      <mat-icon *ngIf="isCollapsed" (click)="toggle()" title="Expand">
+        keyboard_arrow_right
+      </mat-icon>
+    </div>
+  </div>
+  

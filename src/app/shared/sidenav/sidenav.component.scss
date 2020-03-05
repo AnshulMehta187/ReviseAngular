@@ -1,0 +1,85 @@
+@import '../../../libs/uitoolkit/scss/variable.scss';
+
+.eb-sidenav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 230px;
+  height: 100%;
+  padding-top: 10px;
+  font-size: 13px;
+  font-family: $jlgMenuFont;
+  background-color: $jlgMenuBackground;
+  color: #fff; //$jlgMenuHeaderTextColour;
+  transition: width 300ms;
+  // border-right: 1px solid $jlgMenuBackground;
+  white-space: nowrap;
+  overflow: hidden;
+
+  .items {
+    // max-height: calc(100% - 28px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .l2 {
+    .sidenav-item {
+      .item {
+        padding-left: 40px;
+      }
+    }
+  }
+
+  .l3 {
+    .sidenav-item {
+      .item {
+        padding-left: 41px;
+        .mat-icon {
+          transform: rotate(45deg);
+          font-size: 11px;
+          margin-top:15px;
+          align-content: center;
+        }
+      }
+    }
+  }
+
+  &.collapsed {
+    width: 60px;
+    border-top-color: darkgrey;
+
+    .l1 {
+      span {
+        transition: opacity all 0.5s ease;
+        // transition: opacity 100ms ease-out;
+        opacity: 0;
+      }
+
+      .sidenav-item {
+        .item {
+          >.mat-icon {
+            display: none;
+          }
+        }
+      }
+
+      .open {
+        background-color: $jlgMenuHeaderHoverBackground;
+      }
+    }
+  }
+
+  .sidenav-setting {
+    height: 28px;
+    display: flex;
+    font-size: 22px;
+    color: #fff; // dimgray;
+    align-items: center;
+    padding: 10px;
+    justify-content: flex-end;
+
+    .mat-icon {
+      cursor: pointer;
+    }
+  }
+}

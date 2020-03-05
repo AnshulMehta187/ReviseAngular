@@ -1,0 +1,18 @@
+<div class="page">
+    <eb-header [environment]="environment"></eb-header>
+    <div class="body">
+      <eb-sidenav
+        [items]="sidenavItems"
+        *ngIf="!hideSidenav"
+      ></eb-sidenav>
+      <div class="stage">
+        <router-outlet>
+          <!-- <div [class.d-none]="loaded" class="overlay">
+            <mat-spinner diameter="150"></mat-spinner> -->
+          <!-- </div> -->
+        </router-outlet>
+      </div>
+    </div>
+  </div>
+
+  

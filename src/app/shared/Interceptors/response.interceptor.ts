@@ -28,9 +28,19 @@ intercept(
                 return evt;
             }),
             catchError((err: any) => {
+                //this deals with backend errros
                 if(err instanceof HttpErrorResponse) {
                     try {
                         this.toasterService.error(err.error.messages.join(', '), "Error",);
+                    } catch(e) {
+                        this.toasterService.error('An error occurred', '');
+                    }
+                }
+                //this deals with front end errors
+                if(err instanceof TypeError)
+                {
+                    try {
+                        this.toasterService.error(err.message, "Error",);
                     } catch(e) {
                         this.toasterService.error('An error occurred', '');
                     }

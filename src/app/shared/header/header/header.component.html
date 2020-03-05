@@ -1,0 +1,22 @@
+<div class="header">
+    <div>
+      <a href="index.html">
+        <img
+          class="logo"
+          alt="School"
+          title="School"
+          src="assets/images/School.jpg"
+        />
+      </a>
+    </div>
+    <!-- <div class="env" *ngIf="environment?.name !== 'Live'">
+      [[ {{ environment?.name }} ]]
+    </div> -->
+    <div class="account">
+      <span class="username">{{sessionQuery.loggedInUser$ | async}}</span>
+    </div>
+    <li class="nav-item">
+      <button type="button" class="btn btn-default btn-sm" (click)="logout()">Log out</button>
+    </li>
+  </div>
+  

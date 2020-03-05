@@ -1,0 +1,32 @@
+<div class="sidenav-item">
+    <div
+      *ngIf="item.children.length"
+      class="item"
+      (click)="clicked()"
+      [class.open]="item.isOpen"
+    >
+      <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </div>
+    <a
+      *ngIf="!item.children.length"
+      class="item"
+      [routerLink]="[item.url]"
+      [routerLinkActive]="'active'"
+    >
+      <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+    <ng-template #itemContent>
+      <div>
+        <mat-icon>
+          {{ item.icon }}
+        </mat-icon>
+        <span>
+          {{ item.name }}
+        </span>
+      </div>
+      <mat-icon *ngIf="showArrow && item.children.length">
+        {{ item.isOpen ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}
+      </mat-icon>
+    </ng-template>
+  </div>
+  

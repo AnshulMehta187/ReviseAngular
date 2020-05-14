@@ -1,27 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { StudentStore } from '../pages/components/student-details/state/student.store';
+import { StudentDetailsService } from './student-details.service';
+import { tap, finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceListService {
+export class StudentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private store: StudentStore,private studentDetailsService : StudentDetailsService) { }
 
   getStudentDetails()
   {
-    //setTimeout(() => this.http.get<any[]>(`https://localhost:44358/api/student/GetNothing`).subscribe(), 1000);
-    return this.http.get<any>(`https://localhost:44358/api/student/GetStudents`);
+    this.getStudents().subscribe();
   }
 
-  deleteStudent(studentId : number)
-  {
-    return this.http.delete(`https://localhost:44358/api/student/DeleteStudent/${studentId}`);
-  }
+  getStudents() {
+    this.store.update({
+      loading: true
+    });
 
-  // getStudentInformation(id)
-  // {
-  //   //setTimeout(() => this.http.get<any[]>(`https://localhost:44358/api/student/GetNothing`).subscribe(), 1000);
-  //   return this.http.get<any>(`https://localhost:44358/api/student/Get`);
-  // }
+    return this.studentDetailsService.getStudentDetails().pipe(
+      tap(data => {
+        this.store.update({
+          studentDetails: data
+        })
+      }),
+      finalize(() => {
+        this.store.update({
+          loading: false
+        })
+      })
+    );
+  }
 }

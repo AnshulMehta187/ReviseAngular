@@ -14,7 +14,7 @@ import { SectionHeaderComponent } from './shared/section-header/section-header.c
 import { StudentDetailsService } from './services/student-details.service';
 import { AgGridModule } from 'ag-grid-angular';
 import { StudentDetailsComponent } from './pages/components/student-details/student-details.component';
-import { ServiceListService } from './services/service-list.service';
+import { StudentService } from './services/service-list.service';
 import { DialogHeaderComponent } from './shared/dialog-header/dialog-header.component';
 import { StudentDialogComponent } from './pages/components/student-dialog/student-dialog.component';
 import { AppHttpInterceptor } from './shared/Interceptors/response.interceptor';
@@ -61,7 +61,7 @@ import { SidenavItemComponent } from './shared/sidenav/sidenav-item/sidenav-item
     AgGridModule.withComponents([]),
     ToastrModule.forRoot()
   ],
-  providers: [StudentDetailsService,ServiceListService,
+  providers: [StudentDetailsService,StudentService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true }   

@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ServiceListService } from 'src/app/services/service-list.service';
+import {  StudentService } from 'src/app/services/service-list.service';
 import { pipe, Observable } from 'rxjs';
-import { MatPaginator } from '@angular/material/paginator';
 import { StudentDialogComponent } from '../student-dialog/student-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentDetails } from 'src/app/models/student.model';
+import { StudentDetailsService } from 'src/app/services/student-details.service';
+import { Studentquery } from './state/student.query';
 
 @Component({
   selector: 'app-student-details',
@@ -16,21 +17,18 @@ displayedColumns: string[] = ['link','firstName','lastName','gender','dateofBirt
 isLoading : boolean
 
  rowData: Observable<StudentDetails[]>;
-  constructor(public dialog: MatDialog,private serviceListService: ServiceListService) { }
+  constructor(public dialog: MatDialog,private studentService: StudentService,private studentDetailsService : StudentDetailsService,private studentquery : Studentquery) { }
 
   ngOnInit()
   {
     this.isLoading = true;
-    return this.getStudentDetails();
+     this.getStudentDetails();
+     this.rowData = this.studentquery.studentDetails$;
   }
 
   
   private getStudentDetails() {
-
-    return this.serviceListService.getStudentDetails().subscribe(data => {
-      this.isLoading = false;
-      this.rowData = data;
-    },error => this.isLoading =false);
+    return  this.studentService.getStudentDetails()
   }
 
 
@@ -53,7 +51,7 @@ isLoading : boolean
     }
 
     deleteStudent(studentInfo: StudentDetails) {
-      return this.serviceListService.deleteStudent(studentInfo.id).subscribe(resp =>{
+      return this.studentDetailsService.deleteStudent(studentInfo.id).subscribe(resp =>{
           this.getStudentDetails();
         })
     }
